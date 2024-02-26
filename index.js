@@ -1,0 +1,34 @@
+const express = require("express");
+const app = express();
+const cors = require("cors");
+//middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+//rutas
+const peliculaRoutes = require("./Enlace a Datos/routes/peliculaRoutes");
+const ciudadRoutes = require("./Enlace a Datos/routes/ciudadRoutes");
+const complejoRoutes = require("./Enlace a Datos/routes/complejoRoutes");
+const funcionRoutes = require("./Enlace a Datos/routes/funcionRoutes");
+const usuarioRoutes = require("./Enlace a Datos/routes/usuarioRoutes");
+const dashboardRoutes = require("./Enlace a Datos/routes/dashboardRoutes");
+const generoRoutes = require("./Enlace a Datos/routes/generoRoutes");
+const clasificacionRoutes = require("./Enlace a Datos/routes/clasificacionRoutes");
+const salaRoutes = require("./Enlace a Datos/routes/salaRoutes");
+const detalleReservaRoutes = require("./Enlace a Datos/routes/detalleReservaRoutes");
+const reservaRoutes = require("./Enlace a Datos/routes/reservaRoutes");
+const correoRoutes = require("./Enlace a Datos/routes/correoRoutes");
+app.use("/api", peliculaRoutes);
+app.use("/api", ciudadRoutes);
+app.use("/api", complejoRoutes);
+app.use("/api", funcionRoutes);
+app.use("/api", usuarioRoutes);
+app.use("/api", dashboardRoutes);
+app.use("/api", generoRoutes);
+app.use("/api", clasificacionRoutes);
+app.use("/api", salaRoutes);
+app.use("/api", detalleReservaRoutes);
+app.use("/api", reservaRoutes);
+app.use("/api", correoRoutes);
+app.listen("3000");
+console.log("server up localhost:3000");
